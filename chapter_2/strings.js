@@ -47,3 +47,20 @@ console.log(substrDemo)
 
 let replace = email.replace('f','t')
 console.log(replace)
+
+
+// Template strings
+const title = 'My Title'
+const author = 'Billy'
+const blogLikes = 30
+
+let concatenationMethod = 'The blog called ' + title + ' by ' + author + ' has ' + blogLikes + ' likes'
+let templateMethod = `The blog called ${title} by ${author} has ${blogLikes} likes`
+console.log(templateMethod)
+
+
+let html = `<h2>${title}</h2>
+<p>${author}</p>
+<span>This blog has ${blogLikes} likes</span>
+`
+console.log(html)
