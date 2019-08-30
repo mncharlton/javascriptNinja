@@ -33,3 +33,17 @@ console.log(fullname)
 
 let index = name.indexOf('M')
 console.log(index)
+
+let email = "fake@fake.invalid"
+
+let last = email.lastIndexOf('a')
+console.log(last)
+
+let slice = email.slice(0,4)
+console.log(slice)
+
+let substrDemo = email.substr(2, 10)
+console.log(substrDemo)
+
+let replace = email.replace('f','t')
+console.log(replace)
