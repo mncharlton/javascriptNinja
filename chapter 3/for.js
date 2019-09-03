@@ -28,3 +28,20 @@ do {
   console.log(m)
   m++
 } while (m < 5)
+
+
+//break and continue
+
+const scores = [3,2,0,6,50,10,14,12,45,52,12]
+
+for(let i=0; i< scores.length; i++) {
+  if(scores[i] === 0){
+    continue //ignore rest of for loop and continue
+  }
+
+  console.log('your score:', scores[i])
+  if(scores[i] >=50) {
+    console.log('congrats, you got over 50!')
+    break
+  }
+}
