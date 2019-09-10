@@ -30,3 +30,13 @@ console.log(link.getAttribute('href'))
 
 link.setAttribute('href', 'www.yahoo.co.uk') //edit attribute
 link.setAttribute('style', 'color:green') //add attribute
+
+console.log(link.style.color)
+link.style.margin = '50px' //adds new css style without overriding as set attribute would have done
+link.style.fontSize = '60px'
+
+
+const list = document.querySelector('ul')
+console.log(list.classList)
+list.classList.add('winner')
+list.classList.remove('another')
