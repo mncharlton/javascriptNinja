@@ -12,10 +12,10 @@ divs.forEach(div => {
 
 para.innerText += ' Woop Woop!'
 
-divs.forEach(div => {
-  //div.innerText = 'Changed! No worries.'
-  div.innerHTML += '<p><b>BOLD ME</b></p>'
-})
+// divs.forEach(div => {
+//   //div.innerText = 'Changed! No worries.'
+//   div.innerHTML += '<p><b>BOLD ME</b></p>'
+// })
 
 
 const staff = ['mario', 'luigi', 'yoshi']
@@ -40,3 +40,17 @@ const list = document.querySelector('ul')
 console.log(list.classList)
 list.classList.add('winner')
 list.classList.remove('another')
+
+
+const article = document.querySelector('article')
+console.log(article)
+Array.from(article.children).forEach(item => {
+  item.style.color = 'red'
+})
+
+const title = document.querySelector('h2')
+console.log(title.parentElement)
+
+console.log(title.nextElementSibling)
+
+console.log(title.nextElementSibling.parentElement.children)

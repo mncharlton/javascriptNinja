@@ -1,9 +1,9 @@
 const paras = document.querySelectorAll('p')
 
 paras.forEach(para => {
-  if (para.innerText.includes('success')) {
+  if (para.textContent.includes('success')) {
     para.classList.add('success')
-  } else if (para.innerText.includes('error')) {
+  } else if (para.textContent.includes('error')) {
     para.classList.add('error')
   }
 })
