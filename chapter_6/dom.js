@@ -21,7 +21,7 @@ para.innerText += ' Woop Woop!'
 const staff = ['mario', 'luigi', 'yoshi']
 
 staff.forEach(name => {
-  para.innerHTML += `<p>${name}</p>`
+  para.innerHTML += `<li>${name}</li>`
 })
 
 
@@ -54,3 +54,20 @@ console.log(title.parentElement)
 console.log(title.nextElementSibling)
 
 console.log(title.nextElementSibling.parentElement.children)
+
+const button = document.querySelector('button')
+
+button.addEventListener('click', () => {
+  console.log('you clicked me!')
+})
+
+const items = document.querySelectorAll('li')
+console.log(items)
+items.forEach(item => {
+  item.addEventListener('click', e => {   //e is event parameter
+    console.log(e)
+    console.log(e.target)
+    console.log('You clicked an item!')
+    e.target.style.color = 'blue'
+  })
+})
