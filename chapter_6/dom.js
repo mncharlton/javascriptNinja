@@ -55,19 +55,34 @@ console.log(title.nextElementSibling)
 
 console.log(title.nextElementSibling.parentElement.children)
 
+//click events
 const button = document.querySelector('button')
+const ul = document.querySelector('ul')
 
 button.addEventListener('click', () => {
   console.log('you clicked me!')
+  ul.innerHTML += '<li>something new</li>'
+  const li = document.createElement('li')
+  li.textContent = 'Some new thing!'
+  //ul.append(li) //puts at bottom of parent
+  ul.prepend(li) //puts at top of parent
 })
 
-const items = document.querySelectorAll('li')
-console.log(items)
-items.forEach(item => {
-  item.addEventListener('click', e => {   //e is event parameter
-    console.log(e)
-    console.log(e.target)
-    console.log('You clicked an item!')
-    e.target.style.color = 'blue'
-  })
+// const items = document.querySelectorAll('li')
+// console.log(items)
+// items.forEach(item => {
+//   item.addEventListener('click', e => {   //e is event parameter
+//     console.log(e)
+//     console.log(e.target)
+//     console.log('You clicked an item!')
+//     // e.target.style.color = 'blue'
+//     e.target.remove()
+//   })
+// })
+
+ul.addEventListener('click', e => {
+  //console.log(e.target)
+  if(e.target.tagName === 'LI') {
+    e.target.remove()
+  }
 })
