@@ -16,6 +16,14 @@ form.addEventListener('submit', e => {
   }
 })
 
+form.addEventListener('keyup', e => {
+  if (pattern.test(form.username.value)) {
+    form.username.setAttribute('class', 'success')
+  } else {
+    form.username.setAttribute('class', 'error')
+  }
+})
+
 
 
 let result = pattern.test(username)
