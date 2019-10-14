@@ -1,33 +1,63 @@
-const form = document.querySelector('.signup-form')
-const feedback = document.querySelector('.feedback')
-const username = 'mattasdf'
-const pattern = /^[A-z0-9]{6,}$/
-//const username = document.querySelector('#username')
-//submit event gets form being submitted via button or keyboard
-form.addEventListener('submit', e => {
-  e.preventDefault() //stops page refresh
-  //console.log(username.value)
-  console.log(form.username.value) //when inputs have ids
+const scores = [10, 15, 40, 20, 25, 0, 10]
 
-  if (pattern.test(form.username.value)) {
-    feedback.textContent = 'Logged in!'
-  } else {
-    feedback.textContent = 'Invalid username!'
-  }
+const filteredScores = scores.filter(score => {
+  return score > 20
 })
+console.log(filteredScores)
 
-form.addEventListener('keyup', e => {
-  if (pattern.test(form.username.value)) {
-    form.username.setAttribute('class', 'success')
-  } else {
-    form.username.setAttribute('class', 'error')
+const users = [
+  {name: 'matt', premium: true},
+  {name: 'caroline', premium: true},
+  {name: 'jas', premium: false},
+  {name: 'tom', premium: true},
+  {name: 'adam', premium: false}
+]
+
+ const premiumUsers = users.filter(user => {
+   return user.premium
+ })
+ console.log(premiumUsers)
+
+const increasedScores = scores.map(score => score * 1.5)
+console.log(increasedScores)
+
+
+const highScores = scores.reduce((accumulator, current) => {
+  if (current > 20) {
+    accumulator++
   }
-})
+  return accumulator
+}, 0) //initial value of acc
+console.log(highScores)
+
+const firstHighScore = scores.find(score => score > 30)
+console.log(firstHighScore)
 
 
+const names = ['matt', 'caroline', 'andrew', 'lindsay', 'bev', 'neil']
+names.reverse()
+console.log(names)
+names.sort();
+console.log(names)
 
-let result = pattern.test(username)
-console.log(result)
 
-result = username.search(pattern)
-console.log(result) // -1 if false, 0 for true (when using ^ and $)
+const players = [
+  {name: 'matt', score: 20},
+  {name: 'caroline', score: 5},
+  {name: 'jas', score: 17},
+  {name: 'tom', score: 21},
+  {name: 'adam', score: 2}
+]
+
+// players.sort((a, b) => { //a and b are two consecutive elements in the array
+//   if (a.score > b.score) {
+//     return -1 //keep a first
+//   } else if (b.score > a.score) {
+//     return 1 //move b to first
+//   } else {
+//     return 0 //don't reorder
+//   }
+// })
+
+players.sort((a,b) => b.score - a.score) //if b is higher we get positive, if a is then it's negative, if equal then 0
+console.log(players)
