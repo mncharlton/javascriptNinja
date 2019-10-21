@@ -30,15 +30,15 @@ request.send()
 
 
 //function to get todos
-const getTodos = () => {
+const getTodos = (callback) => {
   const todoRequest = new XMLHttpRequest(); //doesn't need to be XML
   todoRequest.addEventListener('readystatechange', () => {
     console.log(todoRequest, todoRequest.readyState)
     //Check mozilla mdn guide for ready state change codes and return codes
     if (todoRequest.readyState === 4 && todoRequest.status === 200) {
-      console.log(todoRequest.responseText)
+      callback()
     } else if (todoRequest.readyState === 4) {
-      console.log('An error occured!')
+      callback()
     }
   })
   todoRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos/')
@@ -48,5 +48,5 @@ const getTodos = () => {
 getTodos()
 
 getTodos(() => {
-
+  console.log('Matt made a callback')
 })
