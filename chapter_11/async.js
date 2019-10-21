@@ -95,3 +95,27 @@ getLocalTodos('todos.json', (err, data) => {
 //callback within callback within callback.
 
 //Promises
+// Example
+
+const getSomething = () => {
+  return new Promise((resolve, reject) => { //will take some time todo and either resolve and get data OR rejected and get error
+    //parameters above are built into promise api, get them automatically
+
+    //fetch something
+  //  resolve('some data')
+    reject('some error')
+  })
+}
+
+//TWO WAYS OF SAME THING. (catch looks neater when chaining promises)
+getSomething().then((data) => {
+  console.log(data)
+}, (err) => {
+  console.log(err)
+})
+
+getSomething().then(data => {
+  console.log(data)
+}).catch(err => {
+  console.log(err)
+})
