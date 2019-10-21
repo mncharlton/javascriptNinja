@@ -36,7 +36,8 @@ const getTodos = (callback) => {
     console.log(todoRequest, todoRequest.readyState)
     //Check mozilla mdn guide for ready state change codes and return codes
     if (todoRequest.readyState === 4 && todoRequest.status === 200) {
-      callback(undefined, request.responseText)
+      const data = JSON.parse(request.responseText)
+      callback(undefined, data)
     } else if (todoRequest.readyState === 4) {
       callback('could not fetch data', undefined)
     }
@@ -61,3 +62,6 @@ getTodos((err, data) => { //convention is error first
 })
 console.log(3)
 console.log(4)
+
+
+//jso is just a string that looks like JS object. JavaScript Object Notation
