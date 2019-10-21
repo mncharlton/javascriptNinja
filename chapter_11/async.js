@@ -87,8 +87,13 @@ const getLocalTodos = (resource) => {
   })
 }
 getLocalTodos('todos.json').then(data => {
-  console.log(data)
-}).catch(err => {
+  console.log('promise 1: ', data)
+  //chain promise
+  return getLocalTodos('todos2.json')
+}).then(data =>  {
+  console.log('promise 2: ', data)
+})
+.catch(err => {
   console.log(err)
 })
 

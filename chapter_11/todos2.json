@@ -1,5 +1,5 @@
 [
-  {"text":"play mario kart", "author":"matt", "points":50, "winner":true},
-  {"text":"buy milk", "author":"billy", "points":20, "winner":false},
-  {"text":"do work", "author":"freddy", "points":10, "winner":false}
+  {"text":"play mario kart", "author":"caroline", "points":50, "winner":true},
+  {"text":"buy milk", "author":"amy", "points":20, "winner":false},
+  {"text":"do work", "author":"rosa", "points":10, "winner":false}
 ]
