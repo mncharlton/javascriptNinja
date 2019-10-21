@@ -71,7 +71,7 @@ const getLocalTodos = (resource, callback) => {
   const localRequest = new XMLHttpRequest()
   localRequest.open('GET', 'todos.json')
   localRequest.addEventListener('readystatechange', () => {
-    console.log(localRequest, localRequest.readyState)
+    //console.log(localRequest, localRequest.readyState)
     //Check mozilla mdn guide for ready state change codes and return codes
     if (localRequest.readyState === 4 && localRequest.status === 200) {
       const data = JSON.parse(localRequest.responseText)
@@ -85,10 +85,13 @@ const getLocalTodos = (resource, callback) => {
 }
 
 getLocalTodos('todos.json', (err, data) => {
-  console.log('here')
   console.log(err, data)
+  getLocalTodos('todos2.json', (err, data) => {
+    console.log(err, data)
+  })
 })
-
 //Get multiple  files in  turn (get first back before starting second one)
 //getTodo within getTodo within getTodo...  Triangle of Doom! callback hell! Nesting
 //callback within callback within callback.
+
+//Promises
