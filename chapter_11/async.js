@@ -67,29 +67,37 @@
 //json is just a string that looks like JS object. JavaScript Object Notation
 
 
-const getLocalTodos = (resource, callback) => {
-  const localRequest = new XMLHttpRequest()
-  localRequest.open('GET', 'todos.json')
-  localRequest.addEventListener('readystatechange', () => {
-    //console.log(localRequest, localRequest.readyState)
-    //Check mozilla mdn guide for ready state change codes and return codes
-    if (localRequest.readyState === 4 && localRequest.status === 200) {
-      const data = JSON.parse(localRequest.responseText)
-      callback(undefined, data)
-    } else if (localRequest.readyState === 4) {
-      callback('could not fetch data', undefined)
-    }
-  })
-  localRequest.open('GET', resource)
-  localRequest.send()
-}
+const getLocalTodos = (resource) => {
 
-getLocalTodos('todos.json', (err, data) => {
-  console.log(err, data)
-  getLocalTodos('todos2.json', (err, data) => {
-    console.log(err, data)
+  return new Promise((resolve, reject)=>{
+    const localRequest = new XMLHttpRequest()
+    localRequest.open('GET', 'todos.json')
+    localRequest.addEventListener('readystatechange', () => {
+      //console.log(localRequest, localRequest.readyState)
+      //Check mozilla mdn guide for ready state change codes and return codes
+      if (localRequest.readyState === 4 && localRequest.status === 200) {
+        const data = JSON.parse(localRequest.responseText)
+        resolve(data)
+      } else if (localRequest.readyState === 4) {
+        reject('could not fetch data')
+      }
+    })
+    localRequest.open('GET', resource)
+    localRequest.send()
   })
+}
+getLocalTodos('todos.json').then(data => {
+  console.log(data)
+}).catch(err => {
+  console.log(err)
 })
+
+// getLocalTodos('todos.json', (err, data) => {
+//   console.log(err, data)
+//   getLocalTodos('todos2.json', (err, data) => {
+//     console.log(err, data)
+//   })
+// })
 //Get multiple  files in  turn (get first back before starting second one)
 //getTodo within getTodo within getTodo...  Triangle of Doom! callback hell! Nesting
 //callback within callback within callback.
