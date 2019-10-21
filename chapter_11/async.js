@@ -36,7 +36,7 @@ const getTodos = (callback) => {
     console.log(todoRequest, todoRequest.readyState)
     //Check mozilla mdn guide for ready state change codes and return codes
     if (todoRequest.readyState === 4 && todoRequest.status === 200) {
-      callback(undefined, request.responseText
+      callback(undefined, request.responseText)
     } else if (todoRequest.readyState === 4) {
       callback('could not fetch data', undefined)
     }
