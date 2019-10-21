@@ -36,9 +36,9 @@ const getTodos = (callback) => {
     console.log(todoRequest, todoRequest.readyState)
     //Check mozilla mdn guide for ready state change codes and return codes
     if (todoRequest.readyState === 4 && todoRequest.status === 200) {
-      callback()
+      callback(undefined, request.responseText
     } else if (todoRequest.readyState === 4) {
-      callback()
+      callback('could not fetch data', undefined)
     }
   })
   todoRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos/')
@@ -47,6 +47,17 @@ const getTodos = (callback) => {
 
 getTodos()
 
-getTodos(() => {
+// 1,2,3,4,result of callback due to async
+console.log(1)
+console.log(2)
+getTodos((err, data) => { //convention is error first
   console.log('Matt made a callback')
+  console.log(err, data)
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(data)
+  }
 })
+console.log(3)
+console.log(4)
