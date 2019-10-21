@@ -67,7 +67,7 @@
 //json is just a string that looks like JS object. JavaScript Object Notation
 
 
-const getLocalTodos = (callback) => {
+const getLocalTodos = (resource, callback) => {
   const localRequest = new XMLHttpRequest()
   localRequest.open('GET', 'todos.json')
   localRequest.addEventListener('readystatechange', () => {
@@ -80,11 +80,15 @@ const getLocalTodos = (callback) => {
       callback('could not fetch data', undefined)
     }
   })
-  localRequest.open('GET', 'todos.json')
+  localRequest.open('GET', resource)
   localRequest.send()
 }
 
-getLocalTodos((err, data) => {
+getLocalTodos('todos.json', (err, data) => {
   console.log('here')
   console.log(err, data)
 })
+
+//Get multiple  files in  turn (get first back before starting second one)
+//getTodo within getTodo within getTodo...  Triangle of Doom! callback hell! Nesting
+//callback within callback within callback.
