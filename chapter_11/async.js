@@ -132,3 +132,37 @@ getSomething().then(data => {
 }).catch(err => {
   console.log(err)
 })
+
+
+
+//FETCH API -  easier, newer way of handling callbacks, promises, etc
+//Native API, built in
+
+fetch('todos.json').then((response) => {
+  //resolve
+  // if(response.status === 200) {
+  //   console.log('fetch resolved: ', response.json())
+  // }
+  return response.json()
+}).then((data) => {
+  console.log(data)
+}).catch((err) => {
+  //reject - only occurs when we get a network error (offline, etc)
+  console.log('fetch rejected: ', err)
+})
+
+
+//ASYNC AND AWAIT
+const getTodos = async () => {
+  //async function returns a promise
+
+  //await stops variable being assigned until fetch has resolved
+  const response = await fetch('todos.json')
+  const data =  await response.json()
+  // console.log('await: ', data)
+  return data
+}
+
+console.log(1)
+getTodos().then(data => console.log('resolves: ',data))
+console.log(2)
