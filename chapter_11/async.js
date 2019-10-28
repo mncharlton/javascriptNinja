@@ -164,5 +164,7 @@ const getTodos = async () => {
 }
 
 console.log(1)
-getTodos().then(data => console.log('resolves: ',data))
+getTodos()
+  .then(data => console.log('resolves: ',data))
+  .catch(err => console.log('error:', err.message))
 console.log(2)
