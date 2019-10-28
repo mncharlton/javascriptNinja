@@ -158,6 +158,11 @@ const getTodos = async () => {
 
   //await stops variable being assigned until fetch has resolved
   const response = await fetch('todos.json')
+
+  if(response.status !== 200){
+    throw new Error('Cannot fetch the data')
+  }
+
   const data =  await response.json()
   // console.log('await: ', data)
   return data
@@ -167,4 +172,7 @@ console.log(1)
 getTodos()
   .then(data => console.log('resolves: ',data))
   .catch(err => console.log('error:', err.message))
+/*
+only catches error in json, if file doesn't exist (or similar) that won't be caught
+*/
 console.log(2)
